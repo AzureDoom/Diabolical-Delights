@@ -1,0 +1,20 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"idle": {
+			"loop": true
+		},
+		"spin": {
+			"loop": true,
+			"animation_length": 0.25,
+			"bones": {
+				"block": {
+					"rotation": {
+						"vector": ["math.cos(query.anim_time * 360) * 360", 0, 0]
+					}
+				}
+			}
+		}
+	},
+	"azurelib_format_version": 2
+}
