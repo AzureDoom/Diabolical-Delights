@@ -1,3 +1,4 @@
-v.1.0.0
+v.1.0.1
 
-- First release
+- Updates required AzureLib version to v1.0.32.
+- Fixes early init crash with Connector.
