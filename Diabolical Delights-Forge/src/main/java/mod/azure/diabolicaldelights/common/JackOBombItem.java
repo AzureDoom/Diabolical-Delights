@@ -1,8 +1,10 @@
 package mod.azure.diabolicaldelights.common;
 
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 import mod.azure.azurelib.animatable.GeoItem;
+import mod.azure.azurelib.animatable.client.RenderProvider;
 import mod.azure.azurelib.constant.DataTickets;
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
 import mod.azure.azurelib.core.animation.AnimatableManager.ControllerRegistrar;
@@ -19,10 +21,10 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 
 public class JackOBombItem extends Item implements GeoItem {
 
+	private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
 	private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
 
 	public JackOBombItem() {
@@ -48,13 +50,18 @@ public class JackOBombItem extends Item implements GeoItem {
 	}
 
 	@Override
-	public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-		consumer.accept(new IClientItemExtensions() {
+	public void createRenderer(Consumer<Object> consumer) {
+		consumer.accept(new RenderProvider() {
 			@Override
 			public BlockEntityWithoutLevelRenderer getCustomRenderer() {
 				return new JackOBombItemRender();
 			}
 		});
+	}
+
+	@Override
+	public Supplier<Object> getRenderProvider() {
+		return renderProvider;
 	}
 
 	@Override
