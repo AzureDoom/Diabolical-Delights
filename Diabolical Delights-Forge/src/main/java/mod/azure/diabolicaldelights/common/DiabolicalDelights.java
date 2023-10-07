@@ -1,6 +1,5 @@
 package mod.azure.diabolicaldelights.common;
 
-import mod.azure.azurelib.AzureLib;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
@@ -26,7 +25,6 @@ public class DiabolicalDelights {
 		ModProjectiles.ENTITY_TYPES.register(modEventBus);
 		ModSounds.MOD_SOUNDS.register(modEventBus);
 		MinecraftForge.EVENT_BUS.register(this);
-		AzureLib.initialize();
 		modEventBus.addListener(this::addCreative);
 	}
 

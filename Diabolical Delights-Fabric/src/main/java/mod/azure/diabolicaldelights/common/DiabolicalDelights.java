@@ -1,6 +1,5 @@
 package mod.azure.diabolicaldelights.common;
 
-import mod.azure.azurelib.AzureLib;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -19,7 +18,6 @@ public class DiabolicalDelights implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		AzureLib.initialize();
 		ModProjectiles.initialize();
 		ModItems.initialize();
 		ModSounds.initialize();
