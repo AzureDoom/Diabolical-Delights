@@ -1,6 +1,7 @@
 package mod.azure.diabolicaldelights.common;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -23,6 +24,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AreaEffectCloud;
@@ -47,6 +49,8 @@ public class JackOBombEntity extends AbstractArrow implements GeoEntity {
 	private static final EntityDataAccessor<Integer> STATE = SynchedEntityData.defineId(JackOBombEntity.class, EntityDataSerializers.INT);
 	private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
 	public static final EntityDataAccessor<Float> FORCED_YAW = SynchedEntityData.defineId(JackOBombEntity.class, EntityDataSerializers.FLOAT);
+	protected static final List<MobEffect> effects = Arrays.asList(MobEffects.MOVEMENT_SPEED, MobEffects.MOVEMENT_SLOWDOWN, MobEffects.DIG_SPEED, MobEffects.DIG_SLOWDOWN, MobEffects.DAMAGE_BOOST, MobEffects.HEAL, MobEffects.HARM, MobEffects.JUMP, MobEffects.CONFUSION, MobEffects.REGENERATION, MobEffects.DAMAGE_RESISTANCE, MobEffects.FIRE_RESISTANCE, MobEffects.WATER_BREATHING, MobEffects.INVISIBILITY, MobEffects.BLINDNESS, MobEffects.NIGHT_VISION, MobEffects.HUNGER, MobEffects.WEAKNESS,
+			MobEffects.POISON, MobEffects.WITHER, MobEffects.HEALTH_BOOST, MobEffects.ABSORPTION, MobEffects.SATURATION, MobEffects.GLOWING, MobEffects.LEVITATION, MobEffects.LUCK, MobEffects.UNLUCK, MobEffects.SLOW_FALLING, MobEffects.CONDUIT_POWER, MobEffects.DOLPHINS_GRACE, MobEffects.BAD_OMEN, MobEffects.HERO_OF_THE_VILLAGE, MobEffects.DARKNESS);
 
 	public JackOBombEntity(EntityType<? extends JackOBombEntity> entityType, Level world) {
 		super(entityType, world);
@@ -180,14 +184,20 @@ public class JackOBombEntity extends AbstractArrow implements GeoEntity {
 	@Override
 	protected void onHitBlock(BlockHitResult blockHitResult) {
 		super.onHitBlock(blockHitResult);
-		if (!this.level().isClientSide) 
+		if (!this.level().isClientSide)
 			this.remove(Entity.RemovalReason.DISCARDED);
 	}
 
 	@Override
 	protected void onHitEntity(EntityHitResult entityHitResult) {
 		super.onHitEntity(entityHitResult);
-		if (!this.level().isClientSide) 
+		if (entityHitResult.getEntity() instanceof LivingEntity hitEntity) {
+			if (this.level().isClientSide)
+				this.level().addAlwaysVisibleParticle(ParticleTypes.SCULK_SOUL, getRandomX(0.5D), getRandomY() - 0.25D, getRandomZ(0.5D), (random.nextDouble() - 0.5D) * 2.0D, -random.nextDouble(), (random.nextDouble() - 0.5D) * 2.0D);
+			hitEntity.addEffect(new MobEffectInstance(effects.get(this.random.nextInt(effects.size())), 100, 0));
+			this.playSound(ModSounds.JACKOBOMB_SOUND.get(), 0.5f, 1.0f);
+		}
+		if (!this.level().isClientSide)
 			this.remove(Entity.RemovalReason.DISCARDED);
 	}
 
@@ -202,13 +212,6 @@ public class JackOBombEntity extends AbstractArrow implements GeoEntity {
 		areaEffectCloudEntity.setDuration(duration);
 		areaEffectCloudEntity.setParticle(particle);
 		areaEffectCloudEntity.setRadiusPerTick(-areaEffectCloudEntity.getRadius() / (float) areaEffectCloudEntity.getDuration());
-		var effects = Arrays.asList(MobEffects.MOVEMENT_SPEED, MobEffects.MOVEMENT_SLOWDOWN, MobEffects.DIG_SPEED, MobEffects.DIG_SLOWDOWN, 
-				MobEffects.DAMAGE_BOOST, MobEffects.HEAL, MobEffects.HARM, MobEffects.JUMP, MobEffects.CONFUSION, MobEffects.REGENERATION, 
-				MobEffects.DAMAGE_RESISTANCE, MobEffects.FIRE_RESISTANCE, MobEffects.WATER_BREATHING, MobEffects.INVISIBILITY, MobEffects.BLINDNESS, 
-				MobEffects.NIGHT_VISION, MobEffects.HUNGER, MobEffects.WEAKNESS, MobEffects.POISON, MobEffects.WITHER,
-				MobEffects.HEALTH_BOOST, MobEffects.ABSORPTION, MobEffects.SATURATION, MobEffects.GLOWING, MobEffects.LEVITATION, MobEffects.LUCK, 
-				MobEffects.UNLUCK, MobEffects.SLOW_FALLING, MobEffects.CONDUIT_POWER, MobEffects.DOLPHINS_GRACE, MobEffects.BAD_OMEN, 
-				MobEffects.HERO_OF_THE_VILLAGE, MobEffects.DARKNESS);
 		areaEffectCloudEntity.addEffect(new MobEffectInstance(effects.get(this.random.nextInt(effects.size())), effectTime));
 		this.playSound(ModSounds.JACKOBOMB_SOUND.get(), 0.5f, 1.0f);
 		entity.level().addFreshEntity(areaEffectCloudEntity);
