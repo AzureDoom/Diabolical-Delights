@@ -1,7 +1,7 @@
 plugins {
 	id 'fabric-loom' version '1.4-SNAPSHOT'
 	id 'maven-publish'
-    id 'com.matthewprenger.cursegradle' version '1.4.0'
+    id 'net.darkhax.curseforgegradle' version '1.+'
     id "com.modrinth.minotaur" version "2.+"
 }
 
@@ -63,36 +63,22 @@ jar {
 }
 
 if (file('key.properties').exists()) {
-    curseforge {
+    task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+        def curseProp = new Properties()
+        File secretPropsFile = file("key.properties")
+        curseProp.load(secretPropsFile.newInputStream())
+        apiToken = curseProp.getProperty("curseKey")
 
-    	def curseProp = new Properties()
-    	File secretPropsFile = file("key.properties")
-    	curseProp.load(secretPropsFile.newInputStream())
-
-    	project {
-        	apiKey = curseProp.getProperty('curseKey')
-        	id = "${curse_id}"
-        	releaseType = "${curse_release}"
-        	changelogType = 'text'
-        	changelog = file('CHANGELOG.txt')
-			addGameVersion("${minecraft_version}")
-			addGameVersion("Fabric")
-			addGameVersion("Quilt")
-			addGameVersion("Java 17")
-
-        	relations {
-            	requiredDependency 'fabric-api'  
-            	requiredDependency 'azurelib'  
-        	}
-        	mainArtifact(remapJar)
-
-        	afterEvaluate {
-            	uploadTask.dependsOn("remapJar")
-        	}
-    	}
-    	options {
-        	forgeGradleIntegration = false
-    	}
+        def mainFile = upload("${curse_id}", remapJar)
+        mainFile.releaseType = "release"
+        mainFile.changelogType = "text"
+        mainFile.addRequirement "fabric-api"
+        mainFile.addRequirement "azurelib"
+        mainFile.addOptional "jackocache"
+        mainFile.changelog = file("changelog.txt")
+        mainFile.addModLoader("Fabric", "Quilt")
+        mainFile.addJavaVersion("Java 17")
+        mainFile.addGameVersion("1.20.1")
     }
 }
 
@@ -112,6 +98,7 @@ if (file('key.properties').exists()) {
 		dependencies { 
         	required.project "azurelib"
         	required.project "fabric-api"
+        	optional.project "jackocache"
    		}
 	}
 }
