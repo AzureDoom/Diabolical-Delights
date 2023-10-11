@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:jack_o_lantern"
+      "tag": "diabolicaldelights:jackolanterns"
     },
     {
       "item": "minecraft:redstone"

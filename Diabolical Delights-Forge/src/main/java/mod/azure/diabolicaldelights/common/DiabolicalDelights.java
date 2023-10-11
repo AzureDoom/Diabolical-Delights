@@ -1,7 +1,9 @@
 package mod.azure.diabolicaldelights.common;
 
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -18,6 +20,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class DiabolicalDelights {
 
 	public static DiabolicalDelights instance;
+	public static final TagKey<Item> JACKOLANTERNS = TagKey.create(Registries.ITEM, DiabolicalDelights.modResource("jackolanterns"));
 
 	public DiabolicalDelights() {
 		var modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

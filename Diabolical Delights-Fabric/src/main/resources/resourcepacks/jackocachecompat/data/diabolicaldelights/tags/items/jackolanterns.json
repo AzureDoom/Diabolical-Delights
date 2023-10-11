@@ -1,0 +1,28 @@
+{
+	"replace": false,
+	"values": [
+		"jackocache:sinister_jack_o_lantern",
+		"jackocache:generic_jack_o_lantern",
+		"jackocache:creep_o_lantern",
+		"jackocache:end_o_lantern",
+		"jackocache:bone_o_lantern",
+		"jackocache:hmm_o_lantern",
+		"jackocache:uwu_o_lantern",
+		"jackocache:oink_o_lantern",
+		"jackocache:web_o_lantern",
+		"jackocache:scream_o_lantern",
+		"jackocache:goo_o_lantern",
+		"jackocache:nice_o_lantern",
+		"jackocache:emote_o_lantern",
+		"jackocache:bark_o_lantern",
+		"jackocache:meow_o_lantern",
+		"jackocache:cluck_o_lantern",
+		"jackocache:the_end_o_lantern",
+		"jackocache:withering_o_lantern",
+		"jackocache:royal_o_lantern",
+		"jackocache:uuh_o_lantern",
+		"jackocache:bah_o_lantern",
+		"jackocache:spook_o_lantern",
+		"jackocache:frost_o_lantern"
+	]
+}

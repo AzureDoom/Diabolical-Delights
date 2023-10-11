@@ -1,0 +1,73 @@
+{
+  "replace" : false,
+  "values" : [ "minecraft:jack_o_lantern", {
+    "id" : "jackocache:sinister_jack_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:generic_jack_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:creep_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:end_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:bone_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:hmm_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:uwu_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:oink_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:web_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:scream_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:goo_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:nice_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:emote_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:bark_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:meow_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:cluck_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:the_end_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:withering_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:royal_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:uuh_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:bah_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:spook_o_lantern",
+    "required" : false
+  }, {
+    "id" : "jackocache:frost_o_lantern",
+    "required" : false
+  } ]
+}
