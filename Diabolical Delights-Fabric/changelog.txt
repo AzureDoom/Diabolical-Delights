@@ -1,4 +1,4 @@
-v.1.0.1
+v.1.0.2
 
-- Updates required AzureLib version to v1.0.32.
-- Fixes early init crash with Connector.
+- Jack O'Bomb now applies the effect to the entity it hits.
+- Added support for Jack o'Cache lanterns!
