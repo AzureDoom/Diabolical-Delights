@@ -69,7 +69,7 @@ if (file('key.properties').exists()) {
         curseProp.load(secretPropsFile.newInputStream())
         apiToken = curseProp.getProperty("curseKey")
 
-        def mainFile = upload("${curse_id}", remapJar)
+        def mainFile = upload("919216", remapJar)
         mainFile.releaseType = "release"
         mainFile.changelogType = "text"
         mainFile.addRequirement "fabric-api"

@@ -113,7 +113,7 @@ if (file('key.properties').exists()) {
         curseProp.load(secretPropsFile.newInputStream())
         apiToken = curseProp.getProperty("curseKey")
 
-        def mainFile = upload("${curse_id}", jar)
+        def mainFile = upload("919216", jar)
         mainFile.releaseType = "release"
         mainFile.changelogType = "text"
         mainFile.addRequirement "azurelib"
