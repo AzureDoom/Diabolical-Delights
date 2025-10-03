@@ -1,4 +1,0 @@
-v.1.0.2
-
-- Jack O'Bomb now applies the effect to the entity it hits.
-- Added support for Jack o'Cache lanterns!

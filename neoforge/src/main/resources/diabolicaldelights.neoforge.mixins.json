@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "mod.azure.diabolicaldelights.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "diabolicaldelights.refmap.json",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "MixinEntityTypeBuilder_SilenceDataFixerError"
+  ]
+}
