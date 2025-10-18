@@ -1,11 +1,11 @@
 package mod.azure.diabolicaldelights.entities;
 
-import mod.azure.azurelib.rewrite.animation.AzAnimatorConfig;
-import mod.azure.azurelib.rewrite.animation.cache.AzBoneCache;
-import mod.azure.azurelib.rewrite.animation.controller.AzAnimationController;
-import mod.azure.azurelib.rewrite.animation.controller.AzAnimationControllerContainer;
-import mod.azure.azurelib.rewrite.animation.impl.AzEntityAnimator;
-import mod.azure.azurelib.rewrite.model.AzBone;
+import mod.azure.azurelib.common.animation.AzAnimatorConfig;
+import mod.azure.azurelib.common.animation.cache.AzBoneCache;
+import mod.azure.azurelib.common.animation.controller.AzAnimationController;
+import mod.azure.azurelib.common.animation.controller.AzAnimationControllerContainer;
+import mod.azure.azurelib.common.animation.impl.AzEntityAnimator;
+import mod.azure.azurelib.common.model.AzBone;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 

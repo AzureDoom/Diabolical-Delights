@@ -1,8 +1,8 @@
 package mod.azure.diabolicaldelights.entities;
 
-import mod.azure.azurelib.common.internal.common.blocks.TickingLightBlock;
-import mod.azure.azurelib.common.internal.common.registry.AzureBlocksRegistry;
-import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
+import mod.azure.azurelib.common.blocks.TickingLightBlock;
+import mod.azure.azurelib.common.registry.AzureBlocksRegistry;
+import mod.azure.azurelib.common.util.AzureLibUtil;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
